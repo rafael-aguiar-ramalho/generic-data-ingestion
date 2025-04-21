@@ -1,0 +1,136 @@
+{
+  "source": {
+    "type": "api",
+    "url": "https://fakerapi.it/api/v1/persons?_quantity=5",
+    "data_location_key": "data",
+    "optional_params": {}
+  },
+  "data": {
+    "rename": {
+      "address.id": "address_id",
+      "address.street": "address_street",
+      "address.streetName": "address_streetName",
+      "address.buildingNumber": "address_buildingNumber",
+      "address.city": "address_city",
+      "address.zipcode": "address_zipcode",
+      "address.country": "address_country",
+      "address.country_code": "address_country_code",
+      "address.latitude": "address_latitude",
+      "address.longitude": "address_longitude"
+    },
+    "auto_trim": true,
+    "treat_columns": {},
+    "schema": [
+      {
+        "col": "id",
+        "type": "bigint",
+        "comment": "Unique identifier for the user."
+      },
+      {
+        "col": "firstname",
+        "type": "string",
+        "comment": "User's first name."
+      },
+      {
+        "col": "lastname",
+        "type": "string",
+        "comment": "User's last name."
+      },
+      {
+        "col": "email",
+        "type": "string",
+        "comment": "User's email address."
+      },
+      {
+        "col": "phone",
+        "type": "string",
+        "comment": "User's phone number."
+      },
+      {
+        "col": "birthday",
+        "type": "date",
+        "comment": "User's birth date."
+      },
+      {
+        "col": "gender",
+        "type": "string",
+        "comment": "User's gender."
+      },
+      {
+        "col": "website",
+        "type": "string",
+        "comment": "User's personal or professional website."
+      },
+      {
+        "col": "image",
+        "type": "string",
+        "comment": "URL to user's profile image."
+      },
+      {
+        "col": "address_id",
+        "type": "bigint",
+        "comment": "Unique identifier for the user's address."
+      },
+      {
+        "col": "address_street",
+        "type": "string",
+        "comment": "Street part of the address."
+      },
+      {
+        "col": "address_streetname",
+        "type": "string",
+        "comment": "Name of the street."
+      },
+      {
+        "col": "address_buildingnumber",
+        "type": "string",
+        "comment": "Building number in the address."
+      },
+      {
+        "col": "address_city",
+        "type": "string",
+        "comment": "City of the address."
+      },
+      {
+        "col": "address_zipcode",
+        "type": "string",
+        "comment": "ZIP or postal code of the address."
+      },
+      {
+        "col": "address_country",
+        "type": "string",
+        "comment": "Country of the address."
+      },
+      {
+        "col": "address_country_code",
+        "type": "string",
+        "comment": "ISO country code."
+      },
+      {
+        "col": "address_latitude",
+        "type": "double",
+        "comment": "Latitude coordinate of the address."
+      },
+      {
+        "col": "address_longitude",
+        "type": "double",
+        "comment": "Longitude coordinate of the address."
+      }
+    ],
+    "py_columns": [
+      {
+        "col": "processed_at",
+        "value": "current_timestamp()",
+        "comment": "Date and time of data processing"
+      }
+    ]
+  },
+  "destination": {
+    "catalog": "default",
+    "warehouse_path": "file:///path/to/data/write",
+    "database": "raw",
+    "table": "faker_api",
+    "mode": "append",
+    "partition_by": []
+  }
+}
