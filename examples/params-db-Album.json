@@ -1,0 +1,53 @@
+{
+  "source": {
+    "type": "database",
+    "jdbc_driver": "org.sqlite.JDBC",
+    "url": "jdbc:sqlite:data/Chinook_Sqlite.sqlite",
+    "query": [
+      "SELECT * FROM Album"
+    ],
+    "user": "",
+    "password": "",
+    "execute_before_query": "SELECT 1 "
+  },
+  "data": {
+    "rename": {
+      "AlbumId": "album_id",
+      "ArtistId": "artist_id"
+    },
+    "auto_trim": true,
+    "treat_columns": {},
+    "schema": [
+      {
+        "col": "album_id",
+        "type": "integer",
+        "comment": "Album ID"
+      },
+      {
+        "col": "title",
+        "type": "string",
+        "comment": "Title"
+      },
+      {
+        "col": "artist_id",
+        "type": "integer",
+        "comment": "Artist ID"
+      }
+    ],
+    "py_columns": [
+      {
+        "col": "processed_at",
+        "value": "current_timestamp()",
+        "comment": "Date and time of data processing"
+      }
+    ]
+  },
+  "destination": {
+    "catalog": "default",
+    "warehouse_path": "file:///path/to/data/write",
+    "database": "raw",
+    "table": "chinook_album",
+    "mode": "overwrite",
+    "partition_by": []
+  }
+}
